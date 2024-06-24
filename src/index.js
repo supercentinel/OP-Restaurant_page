@@ -1,4 +1,6 @@
 import { Home } from './modules/home.js';
+import { Menu } from './modules/menu.js';
+import { Contact } from './modules/contact.js';
 
 import './styles.css';
 
@@ -16,22 +18,43 @@ function header() {
     const button = document.createElement('button');
     button.textContent = bttns_text[i];
     buttons[i] = button;
+    buttons[i].addEventListener('click', function () {
+      switch (bttns_text[i]) {
+        case 'Home':
+          document.getElementById('content').remove();
+          document.body.appendChild(SetContent(Home));
+        break;
+        case 'Menu':
+          document.getElementById('content').remove();
+          document.body.appendChild(SetContent(Menu));
+        break;
+        case 'Contact':
+          document.getElementById('content').remove();
+          document.body.appendChild(SetContent(Contact));
+        break;
+
+        default:
+          break;
+      }
+
+      console.log(buttons[i].textContent);
+    });
     nav.appendChild(button);
   } // end
 
   return header;
 }
 
-function content() {
+function SetContent(_content) {
   const content = document.createElement('div');
   content.id = 'content';
-  content.appendChild(Home);
+  content.appendChild(_content);
 
   return content;
 }
 
 document.body.appendChild(header());
-document.body.appendChild(content());
+document.body.appendChild(SetContent(Home));
 
 console.log(Home);
 

@@ -1,39 +1,54 @@
-body {
-    font-family: Noto Sans, sans-serif;
-    margin: 0;
+html {
+    position: fixed;
+    width: 100%;
+    height: 100%;
 
-    nav {
-        background-color: blue;
+    body {
+        flex: 1;
+        font-family: Noto Sans, sans-serif;
         display: flex;
-
-        button {
-            flex: 1;
-            margin-left: 5%;
-            margin-right: 5%;
-            border: 1px solid black;
-            background-color: pink;
-            border-style: double;
-        }
-    }
-
-    #content {
-        border: 1px solid black;
-        color: whitesmoke;
-        text-align: center;
-        position: fixed;
-        left: 0;
-        right: 0;
-        z-index: auto;
-
-        background-image: url('./img/ulysse-pointcheval-1WmlAiYgnoI-unsplash.jpg');
+        flex-direction: column;
+        margin: 0;
 
         header {
-            font-size: 3em;
-            font-weight: bold;
+            flex: 2;
+            & nav {
+                flex: 3;
+                background-color: blue;
+                display: flex;
+
+                & button {
+                    flex: 1;
+                    margin-left: 5%;
+                    margin-right: 5%;
+                    border: 1px solid black;
+                    background-color: pink;
+                    border-style: double;
+                }
+            }
         }
 
-        p {
-            font-size: 1.5em;
+        #content {
+            flex: 6;
+
+            div {
+                flex: 1;
+                border: 1px solid black;
+                color: whitesmoke;
+                text-align: center;
+
+                background-image: url('/src/img/ulysse-pointcheval-1WmlAiYgnoI-unsplash.jpg');
+
+                header {
+                    font-size: 3em;
+                    font-weight: bold;
+                }
+
+                p {
+                    font-size: 1.5em;
+                }
+            }
         }
+
     }
 }

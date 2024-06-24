@@ -18,11 +18,13 @@
    module: {
      rules: [
        {
-         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-         use: ['asset/resource'],
+         test: /\.(png|jpg|jpeg|gif)$/i,
+         type: 'asset/resource',
        },
-     ],
-     rules: [
+       {
+         test: /\.svg$/,
+         use: 'svg-url-loader',
+       },
        {
          test: /\.css$/i,
          use: ['style-loader', 'css-loader'],
